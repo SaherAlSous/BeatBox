@@ -5,8 +5,8 @@ import org.junit.Assert.*
 
 import org.junit.Before
 import org.junit.Test
-//import org.mockito.Mockito.mock
-//import org.mockito.Mockito.verify
+import org.mockito.Mockito.mock
+import org.mockito.Mockito.verify
 
 
 /*
@@ -21,7 +21,7 @@ class SoundViewModelTest {
     @Before
     fun setUp() {
 
-       // beatBox= mock(BeatBox::class.java)
+        beatBox= mock(BeatBox::class.java)
         sound = Sound("assetPath")
         subject = SoundViewModel(beatBox)
         subject.sound = sound
@@ -37,6 +37,9 @@ class SoundViewModelTest {
     fun callsBeatBoxPlayButtonClicked(){
         subject.onButtonClicked()
 
-      //  verify(beatBox).play(sound)
+        verify(beatBox).play(sound)
     }
+
+
 }
+
