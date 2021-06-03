@@ -10,21 +10,25 @@ import java.lang.Exception
 private const val TAG = "BeatBox"
 private const val SOUND_FOLDER = "sample_sound"
 private const val MAX_SOUNDS = 5
+var rate = 1.0f
 
 class BeatBox(private val assets: AssetManager) {
 
+
+
     val sounds: List<Sound>
     /* Creating a sound pool to play the wav files p. 393+ */
-    private val soundPool = SoundPool.Builder()
+    val soundPool = SoundPool.Builder()
         .setMaxStreams(MAX_SOUNDS)
         .build()
     init {
         sounds = loadSounds()
     }
     /* playing sounds. P. 396*/
+
     fun play(sound:Sound){
         sound.soundID?.let {
-            soundPool.play(it, 1.0f, 1.0f,1,0,1.0f)
+            soundPool.play(it, 1.0f, 1.0f,1,0, rate)
         }
     }
 
